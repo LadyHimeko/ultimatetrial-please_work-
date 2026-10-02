@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>✨ A Little Birthday Surprise ✨</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         FLOATING DECORATIONS
+    ========================================================== -->
+
+    <div class="background-decorations" id="backgroundDecorations">
+        <!-- Balloons are created by JavaScript -->
+    </div>
+
+
+    <!-- =========================================================
+         PAGE 1 — WELCOME
+    ========================================================== -->
+
+    <section class="page active" id="home">
+
+        <div class="floating-sparkle sparkle-1">✦</div>
+        <div class="floating-sparkle sparkle-2">✧</div>
+        <div class="floating-sparkle sparkle-3">♡</div>
+
+        <div class="welcome-container">
+
+            <p class="small-intro">
+                🌿 a little something for you...
+            </p>
+
+            <h1>
+                Hey, Birthday Boy! 🎂
+            </h1>
+
+            <p class="subtitle">
+                I made something for you.
+            </p>
+
+            <!-- CLICKABLE COVER PHOTO -->
+            <button class="cover-photo-button"
+                    onclick="goToPage('menu')"
+                    aria-label="Open birthday surprise">
+
+                <div class="photo-frame">
+
+                    <!-- ✏️ CHANGE THIS IMAGE -->
+                    <img src="images/cover.jpg"
+                         alt="Birthday photo">
+
+                    <div class="photo-shine"></div>
+
+                </div>
+
+                <span class="click-hint">
+                    ✨ click me ✨
+                </span>
+
+            </button>
+
+            <p class="tiny-text">
+                (yes, actually click the picture 👀)
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PAGE 2 — MENU
+    ========================================================== -->
+
+    <section class="page" id="menu">
+
+        <div class="menu-container">
+
+            <p class="small-intro">
+                🌱 you made it!
+            </p>
+
+            <h2>
+                Three little things for you 💚
+            </h2>
+
+            <p class="menu-subtitle">
+                Click each one. No skipping. I will know. 👀
+            </p>
+
+
+            <!-- THREE PHOTO CARDS -->
+
+            <div class="photo-menu">
+
+                <!-- PHOTO 1 -->
+                <button class="memory-card"
+                        onclick="openMemory(1)">
+
+                    <div class="card-image">
+
+                        <!-- ✏️ CHANGE THIS IMAGE -->
+                        <img src="images/photo1.jpg"
+                             alt="Memory one">
+
+                        <div class="card-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🌿
+                    </span>
+
+                </button>
+
+
+                <!-- PHOTO 2 -->
+                <button class="memory-card"
+                        onclick="openMemory(2)">
+
+                    <div class="card-image">
+
+                        <!-- ✏️ CHANGE THIS IMAGE -->
+                        <img src="images/photo2.jpg"
+                             alt="Memory two">
+
+                        <div class="card-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🌱
+                    </span>
+
+                </button>
+
+
+                <!-- PHOTO 3 -->
+                <button class="memory-card"
+                        onclick="openMemory(3)">
+
+                    <div class="card-image">
+
+                        <!-- ✏️ CHANGE THIS IMAGE -->
+                        <img src="images/photo3.jpg"
+                             alt="Memory three">
+
+                        <div class="card-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <span>
+                        Open me 🍃
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-container">
+
+                <span id="progressText">
+                    0 / 3 discovered
+                </span>
+
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+
+            </div>
+
+
+            <!-- LOCKED FINAL BUTTON -->
+
+            <div id="finalButtonContainer"
+                 class="final-button-container">
+
+                <p id="lockedMessage">
+                    🔒 There might be something else...
+                </p>
+
+                <button id="finalButton"
+                        onclick="showSurprise()">
+
+                    ✨ CLICK ME ✨
+
+                </button>
+
+            </div>
+
+
+            <button class="back-button"
+                    onclick="goToPage('home')">
+
+                ← Go back
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PAGE 3 — MEMORY / MESSAGE
+    ========================================================== -->
+
+    <section class="page" id="memory">
+
+        <div class="memory-container">
+
+            <button class="top-back-button"
+                    onclick="goToPage('menu')">
+
+                ← Back to the memories
+
+            </button>
+
+
+            <div class="message-card">
+
+                <div class="message-number"
+                     id="messageNumber">
+                    01
+                </div>
+
+                <h2 id="messageTitle">
+                    A little message 💚
+                </h2>
+
+
+                <!-- MESSAGE -->
+
+                <div class="message-text"
+                     id="messageText">
+
+                    Your message goes here.
+
+                </div>
+
+
+                <!-- QR CODE -->
+
+                <div class="qr-section">
+
+                    <p>
+                        Scan this 👀
+                    </p>
+
+                    <div class="qr-frame">
+
+                        <!-- QR CODE CHANGES WITH EACH MEMORY -->
+                        <img id="qrImage"
+                             src="qr/qr1.png"
+                             alt="QR Code">
+
+                    </div>
+
+                    <small>
+                        There's something waiting for you...
+                    </small>
+
+                </div>
+
+
+                <button class="green-button"
+                        onclick="goToPage('menu')">
+
+                    ← Back to menu
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PAGE 4 — FINAL SURPRISE
+    ========================================================== -->
+
+    <section class="page surprise-page"
+             id="surprise">
+
+        <!-- CONFETTI -->
+        <div id="confettiContainer"></div>
+
+        <!-- BALLOONS -->
+        <div id="balloonContainer"></div>
+
+
+        <div class="surprise-content">
+
+            <div class="surprise-stars">
+                ✦ ✧ ✦
+            </div>
+
+            <p class="surprise-small">
+                🎉 SURPRISE! 🎉
+            </p>
+
+            <h1>
+                HAPPY BIRTHDAY! 💚
+            </h1>
+
+
+            <!-- ✏️ CHANGE THIS IMAGE -->
+
+            <div class="surprise-photo">
+
+                <img src="images/surprise.jpg"
+                     alt="Birthday surprise">
+
+            </div>
+
+
+            <!-- ✏️ CHANGE THIS MESSAGE -->
+
+            <div class="final-message">
+
+                <p>
+                    Happy birthday! 🎂
+                </p>
+
+                <p>
+                    I hope today brings you lots of happiness,
+                    laughter, good food, and all the little things
+                    that make you smile.
+                </p>
+
+                <p>
+                    You deserve a really good year ahead. 🌿
+                </p>
+
+                <p class="heart">
+                    ♡
+                </p>
+
+            </div>
+
+
+            <button class="restart-button"
+                    onclick="restartExperience()">
+
+                ↻ Start over
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
